@@ -31,10 +31,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHead"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintVertical_bias="0.065" />
 
     <EditText
         android:id="@+id/etDob"
@@ -46,69 +46,39 @@
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.04" />
-
-    <EditText
-        android:id="@+id/etBlood"
-        android:layout_width="123dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:fontFamily="@font/varela_round"
-        android:hint="Blood Group"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDob"
-        app:layout_constraintVertical_bias="0.041" />
-
-    <EditText
-        android:id="@+id/etGender"
-        android:layout_width="80dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:fontFamily="@font/varela_round"
-        android:hint="Gender"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toEndOf="@+id/etBlood"
-        app:layout_constraintTop_toBottomOf="@+id/etDob"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <EditText
         android:id="@+id/etPhone"
-        android:layout_width="220dp"
-        android:layout_height="43dp"
+        android:layout_width="216dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="312dp"
         android:ems="10"
         android:fontFamily="@font/varela_round"
         android:hint="Phone"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBlood"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="220dp"
-        android:layout_height="42dp"
+        android:layout_width="216dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:fontFamily="@font/varela_round"
         android:hint="Choose Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPhone"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.27" />
 
     <Button
         android:id="@+id/btnSignup"
@@ -141,16 +111,43 @@
 
     <EditText
         android:id="@+id/etMail"
-        android:layout_width="220dp"
-        android:layout_height="45dp"
+        android:layout_width="215dp"
+        android:layout_height="46dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPhone"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.048" />
+
+    <Spinner
+        android:id="@+id/spblood"
+        android:layout_width="219dp"
+        android:layout_height="39dp"
+        android:dropDownWidth="match_parent"
+        android:entries="@array/blood_arrays"
+        android:prompt="@string/blood_group"
+        app:layout_constraintBottom_toTopOf="@+id/spGender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDob"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <Spinner
+        android:id="@+id/spGender"
+        android:layout_width="218dp"
+        android:layout_height="43dp"
+        android:entries="@array/gender_arrays"
+        android:prompt="@string/gender_group"
+        app:layout_constraintBottom_toTopOf="@+id/etPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDob"
+        app:layout_constraintVertical_bias="0.835" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,11 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
 
 public class Signup extends AppCompatActivity {
-    private EditText Name,Dob,Phone,Password,Mail,Gender,Blood;
+    private EditText Name,Dob,Phone,Password,Mail;
     private Button Sign;
+    private Spinner Blood,Gender;
     private FirebaseAuth mAuth;
     private TextView Login;
 
@@ -46,8 +47,8 @@ public class Signup extends AppCompatActivity {
         Phone=(EditText)findViewById(R.id.etPhone);
         Password=(EditText)findViewById(R.id.etPassword);
         Sign=(Button)findViewById(R.id.btnSignup);
-        Gender=(EditText)findViewById(R.id.etGender);
-        Blood=(EditText)findViewById(R.id.etBlood);
+        Gender=(Spinner)findViewById(R.id.spGender);
+        Blood=(Spinner)findViewById(R.id.spblood);
         Mail=(EditText)findViewById(R.id.etMail);
         Login=(TextView)findViewById(R.id.tvLogin);
 
@@ -62,13 +63,16 @@ public class Signup extends AppCompatActivity {
         Sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String etName = Name.getText().toString().trim();
                 final String etMail = Mail.getText().toString().trim();
                 String etPassword = Password.getText().toString().trim();
                 final String etPhone = Phone.getText().toString().trim();
                 final String etDob = Dob.getText().toString().trim();
-                final String etGender = Gender.getText().toString().trim();
-                final String etBlood = Blood.getText().toString().trim();
+                final String etGender = Gender.getSelectedItem().toString().trim();
+                final String etBlood = Blood.getSelectedItem().toString().trim();
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
                 if (TextUtils.isEmpty(etName)) {
                     Name.setError("Name is required");
@@ -76,6 +80,10 @@ public class Signup extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(etMail)) {
                     Mail.setError("Email is required");
+                    return;
+                }
+                if (!etMail.matches(emailPattern)) {
+                    Mail.setError("Invalid Email");
                     return;
                 }
                 if (etPassword.length() < 6) {

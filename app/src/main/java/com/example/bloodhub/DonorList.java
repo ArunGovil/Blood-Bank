@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -31,8 +34,8 @@ public class DonorList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DonorAdapter adapter;
     private List<Users> userList;
-
-    private DatabaseReference profileUserRef;
+    private View mView;
+    private Button call;
 
 
     @Override
@@ -50,15 +53,13 @@ public class DonorList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new DonorAdapter(this, userList);
         recyclerView.setAdapter(adapter);
+        call = (Button) findViewById(R.id.btnCall);
 
-        profileUserRef=FirebaseDatabase.getInstance().getReference("User");
-        profileUserRef.addListenerForSingleValueEvent(valueEventListener);
-
-        Query query = FirebaseDatabase.getInstance().getReference("User")
+        Query queryRef = FirebaseDatabase.getInstance().getReference("User")
                 .orderByChild("etBlood")
-                .equalTo("O-ve");
+                .equalTo("O+ve");
 
-        query.addListenerForSingleValueEvent(valueEventListener);
+        queryRef.addListenerForSingleValueEvent(valueEventListener);
 
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
