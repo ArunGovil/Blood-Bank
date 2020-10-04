@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1049320471663-ct9gtki8apfkf6j2ba0gbonrukie9bg9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloodhub",
+            "certificate_hash": "09e613976820c37c76ba72b4c4a40375d6f417ee"
+          }
+        },
+        {
           "client_id": "1049320471663-uoac4pon8l6vgqvuc15hinqblqnntagr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

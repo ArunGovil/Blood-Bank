@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/listbg"
+        android:layout_margin="@dimen/cardview_default_radius"
         android:padding="8dp">
 
         <Button
@@ -17,6 +18,7 @@
             android:layout_marginLeft="275dp"
             android:layout_marginTop="18dp"
             android:background="@drawable/button"
+            android:foreground="?android:attr/selectableItemBackground"
             android:fontFamily="@font/varela_round"
             android:text="Call"
             android:textAllCaps="false"

@@ -1,6 +1,8 @@
 package com.example.bloodhub;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.UserViewHolder> {
 
@@ -32,9 +36,20 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.UserViewHold
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
 
-        Users user = UserList.get(position);
+        final Users user = UserList.get(position);
         holder.Name.setText(user.getEtName());
         holder.Phone.setText(user.getEtPhone());
+
+        holder.Call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mobileNo = user.getEtPhone();
+                String call = "tel:" +mobileNo.trim();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse(call));
+                mCtx.startActivity(intent);
+            }
+        });
 
     }
 
@@ -43,8 +58,9 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.UserViewHold
         return UserList.size();
     }
 
-    class UserViewHolder extends RecyclerView.ViewHolder{
+    static class UserViewHolder extends RecyclerView.ViewHolder{
 
+        public View Call;
         TextView Name, Phone;
 
         public UserViewHolder(@NonNull View itemView) {
@@ -52,6 +68,7 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.UserViewHold
 
             Name = itemView.findViewById(R.id.tvName);
             Phone = itemView.findViewById(R.id.tvPhone);
+            Call = itemView.findViewById(R.id.btnCall);
 
         }
     }

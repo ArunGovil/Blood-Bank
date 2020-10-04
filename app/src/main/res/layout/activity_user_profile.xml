@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/proback" />
+        app:srcCompat="@drawable/proback"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/tvHead"
@@ -42,7 +43,8 @@
         app:layout_constraintStart_toStartOf="@+id/ivBg"
         app:layout_constraintTop_toTopOf="@+id/ivBg"
         app:layout_constraintVertical_bias="0.134"
-        app:srcCompat="@drawable/userdp" />
+        app:srcCompat="@drawable/userdp"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/tvName"
@@ -91,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Log Out"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

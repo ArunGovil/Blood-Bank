@@ -50,10 +50,6 @@ public class UserProfile extends AppCompatActivity {
 
                 switch (item.getItemId()){
 
-                    case R.id.nav_notification:
-                        startActivity(new Intent(getApplicationContext(), Notification.class));
-                        break;
-
                     case R.id.nav_profile:
                         startActivity(new Intent(getApplicationContext(), UserProfile.class));
                         break;

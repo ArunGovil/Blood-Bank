@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button"
         android:fontFamily="@font/varela_round"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -61,7 +62,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.159"
-        app:srcCompat="@drawable/bloodhub" />
+        app:srcCompat="@drawable/bloodhub"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/tvSignup"

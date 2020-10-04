@@ -4,7 +4,7 @@
 
     <string name="blood_group">Choose a country</string>
     <string-array name="blood_arrays">
-        <item>Blood</item>
+        <item>Blood Group</item>
         <item>A+ve</item>
         <item>A-ve</item>
         <item>B+ve</item>
@@ -15,8 +15,9 @@
         <item>AB-ve</item>
     </string-array>
 
-    <string name="gender_group"></string>
+    <string name="gender_group" />
     <string-array name="gender_arrays">
+        <item>Gender</item>
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>

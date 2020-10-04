@@ -34,8 +34,8 @@ public class DonorList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DonorAdapter adapter;
     private List<Users> userList;
-    private View mView;
     private Button call;
+    private int pressedButtonNumber;
 
 
     @Override
@@ -55,11 +55,65 @@ public class DonorList extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         call = (Button) findViewById(R.id.btnCall);
 
-        Query queryRef = FirebaseDatabase.getInstance().getReference("User")
-                .orderByChild("etBlood")
-                .equalTo("O+ve");
+        pressedButtonNumber = getIntent().getExtras().getInt("buttonNumber");
+        switch(pressedButtonNumber){
+            case 1:
+                Query queryRef = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("A+ve");
 
-        queryRef.addListenerForSingleValueEvent(valueEventListener);
+                queryRef.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 2:
+                Query queryRef2 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("A-ve");
+
+                queryRef2.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 3:
+                Query queryRef3 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("B+ve");
+
+                queryRef3.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 4:
+                Query queryRef4 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("B-ve");
+
+                queryRef4.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 5:
+                Query queryRef5 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("O+ve");
+
+                queryRef5.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 6:
+                Query queryRef6 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("O-ve");
+
+                queryRef6.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 7:
+                Query queryRef7 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("AB+ve");
+
+                queryRef7.addListenerForSingleValueEvent(valueEventListener);
+                break;
+            case 8:
+                Query queryRef8 = FirebaseDatabase.getInstance().getReference("User")
+                        .orderByChild("etBlood")
+                        .equalTo("AB-ve");
+
+                queryRef8.addListenerForSingleValueEvent(valueEventListener);
+                break;
+        }
 
     }
     ValueEventListener valueEventListener = new ValueEventListener() {

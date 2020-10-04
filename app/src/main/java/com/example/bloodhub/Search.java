@@ -21,11 +21,10 @@ public class Search extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try
-        {
+        try {
             this.getSupportActionBar().hide();
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
         setContentView(R.layout.activity_search);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
@@ -34,11 +33,7 @@ public class Search extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()){
-
-                    case R.id.nav_notification:
-                        startActivity(new Intent(getApplicationContext(), Notification.class));
-                        break;
+                switch (item.getItemId()) {
 
                     case R.id.nav_profile:
                         startActivity(new Intent(getApplicationContext(), UserProfile.class));
@@ -64,10 +59,75 @@ public class Search extends AppCompatActivity {
         ABp = (Button) findViewById(R.id.btnABp);
         ABn = (Button) findViewById(R.id.btnABn);
 
+        Ap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 1);
+                startActivity(intent);
+            }
+        });
+
+        An.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 2);
+                startActivity(intent);
+            }
+        });
+
+        Bp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 3);
+                startActivity(intent);
+            }
+        });
+
+        Bn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 4);
+                startActivity(intent);
+            }
+        });
+
         Op.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), DonorList.class));
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 5);
+                startActivity(intent);
+            }
+        });
+
+        On.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 6);
+                startActivity(intent);
+            }
+        });
+
+        ABp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 7);
+                startActivity(intent);
+            }
+        });
+
+        ABn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), DonorList.class);
+                intent.putExtra("buttonNumber", 8);
+                startActivity(intent);
             }
         });
 
